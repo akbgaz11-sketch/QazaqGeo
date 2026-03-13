@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with gamification stats",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "xp": { "type": "number" },
+        "level": { "type": "number" },
+        "quizzesCompleted": { "type": "number" },
+        "perfectScores": { "type": "number" },
+        "streak": { "type": "number" },
+        "unlockedAchievements": { "type": "array", "items": { "type": "string" } },
+        "lastQuizDate": { "type": "string" }
+      },
+      "required": ["uid", "email", "xp", "level"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile documents"
+    }
+  }
+}
